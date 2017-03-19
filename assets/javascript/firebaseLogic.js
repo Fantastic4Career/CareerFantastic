@@ -35,13 +35,22 @@ var seedData = [
 
 //_.forEach(seedData, d=> jobsAppliedDB.push(d));
 //var jobApplied =[];
-var indeed_client = new Indeed("9049151526441005");
-indeed_client.search({
-  q: 'javascript',
-  l: '94112',
-  userip: 'localhost',
-  useragent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2)',
-}, function(response){
+$.ajax({
+  method: 'GET',
+  url: 'https://api.indeed.com/ads/apisearch',
+  crossDomain: true,
+  dataType: 'jsonp',
+  data: {
+    'v': '2', 
+    'format': 'json', 
+    'publisher': "9049151526441005",
+    q: 'javascript',
+    l: '94112',
+    userip: 'localhost',
+    useragent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2)',
+  }
+})
+.done(function(response){
   //render the jobs from the search_response
   console.log("response is>>>>>", response.results);
   let results = [].concat(response.results);
@@ -64,7 +73,7 @@ indeed_client.search({
         console.log("here>>>>", this.jobApplied);
         return $.ajax({
           method: 'GET',
-          url: '//api.glassdoor.com/api/api.htm',
+          url: 'https://api.glassdoor.com/api/api.htm',
           crossDomain: true,
           dataType: 'jsonp',
           data: {
@@ -91,11 +100,10 @@ indeed_client.search({
       }
     }
   });
-  
-},function(error){
+})
+.fail(function(error){
   console.log("error is>>>", error);
 });
-
 
 var appliedJobsVue = new Vue({
   el: '#applied-jobs',
