@@ -29,7 +29,7 @@ var seedData = [
       name: "The Startup",
       location:"123 FooBar St. , San Francisco, CA 94111",
     },
-    jobLink: "http://www.google.com",
+    jobLink: "https://www.google.com",
   },
 ];
 
@@ -64,7 +64,7 @@ indeed_client.search({
         console.log("here>>>>", this.jobApplied);
         return $.ajax({
           method: 'GET',
-          url: 'http://api.glassdoor.com/api/api.htm',
+          url: 'https://api.glassdoor.com/api/api.htm',
           crossDomain: true,
           dataType: 'jsonp',
           data: {
