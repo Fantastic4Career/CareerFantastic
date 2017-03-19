@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Fantastic4Career/CareerFantastic/issues"
   },
-  "homepage": "https://github.com/Fantastic4Career/CareerFantastic#readme"
+  "homepage": "https://github.com/Fantastic4Career/CareerFantastic#readme",
+  "dependencies": {
+    
+  }
 }

@@ -76,7 +76,18 @@
 
     </div> <!--end right colume-->
   </div> <!--end row-->
-
+  <div id="new-jobs">
+    <span style="font-weight:bold;">Here is a list of new jobs</span>
+    <div v-for="job in jobs">
+      <div @click.stop="removeJob(job)">{{job.jobtitle}}</div>
+    </div>
+  </div>
+  <div id="applied-jobs">
+    <span style="font-weight:bold;">Here is a list of applied jobs</span>
+    <div v-for="job in jobs">
+    {{job.jobtitle}}
+    </div>
+  </div>
 
 
 
@@ -87,6 +98,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.6/lodash.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.4/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vuefire/1.4.0/vuefire.js"></script>
+<script src="./assets/javascript/indeed.js"></script>
 <script src="./assets/javascript/firebaseLogic.js"></script>
 </body>
 </html>

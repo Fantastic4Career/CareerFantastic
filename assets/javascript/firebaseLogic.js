@@ -8,7 +8,7 @@ var config = {
 };
 firebase.initializeApp(config);
 var database = firebase.database();
-var jobsAppliedDB = database.ref("/jobsApplied");
+var jobsAppliedDB = database.ref("/test");
 
 var seedData = [
   {
@@ -34,3 +34,79 @@ var seedData = [
 ];
 
 //_.forEach(seedData, d=> jobsAppliedDB.push(d));
+//var jobApplied =[];
+var indeed_client = new Indeed("9049151526441005");
+indeed_client.search({
+  q: 'javascript',
+  l: '94112',
+  userip: 'localhost',
+  useragent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2)',
+}, function(response){
+  //render the jobs from the search_response
+  console.log("response is>>>>>", response.results);
+  let results = [].concat(response.results);
+  
+  var newJobsVue = new Vue({
+    el: '#new-jobs',
+    data: {
+      jobs: results
+    },
+    firebase: {
+      jobApplied: jobsAppliedDB.limitToLast(25)
+    },
+    methods: {
+      removeJob: function (job) {
+        // remove current job
+        console.log("here>>>>", this.jobApplied)
+        this.jobs.splice(this.jobs.indexOf(job), 1);
+        let index = this.jobApplied.length;
+        jobsAppliedDB.child(index).set(job);
+        console.log("here>>>>", this.jobApplied);
+        return $.ajax({
+          method: 'GET',
+          url: 'http://api.glassdoor.com/api/api.htm',
+          crossDomain: true,
+          dataType: 'jsonp',
+          data: {
+            "t.p": '133036',
+            "t.k": 'hKjBTq5hhVK',
+            "v" : '1',
+            "format": 'json',
+            "userip": 'localhost',
+            "useragent": 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2)',
+            "action" : 'employers',
+            "q": job.company,
+            "city": job.city
+          }
+        })
+        .done(function (response) {
+          console.log("glassdoor response is>>>>", response);
+          jobsAppliedDB.child(index).child("glassdoor").set(response.response.employers)
+        })
+        .fail(function (error) {
+          console.log("glassdoor error>>>", error);
+        });
+        //
+        // put it into jobApplied array
+      }
+    }
+  });
+  
+},function(error){
+  console.log("error is>>>", error);
+});
+
+
+var appliedJobsVue = new Vue({
+  el: '#applied-jobs',
+  firebase: {
+    jobs: jobsAppliedDB.limitToLast(25)
+  },
+  methods: {
+    noop: function () {
+      
+    }
+  }
+})
+
+
