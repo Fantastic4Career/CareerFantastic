@@ -1,0 +1,24 @@
+{
+  "name": "career_fantastic",
+  "version": "1.0.0",
+  "description": "Job/Career search and management engine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fantastic4Career/CareerFantastic.git"
+  },
+  "keywords": [
+    "job",
+    "search",
+    "career"
+  ],
+  "author": "Shengtao Li, Eleanor Mark, Ege Ertem, Felipe Zapata",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Fantastic4Career/CareerFantastic/issues"
+  },
+  "homepage": "https://github.com/Fantastic4Career/CareerFantastic#readme"
+}
