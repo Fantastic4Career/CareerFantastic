@@ -19,7 +19,7 @@ var seedData = [
       name: "Apple",
       location: "One Infinity Loop, Cupertino, CA 95014",
     },
-    jobLink: "http://www.apple.com/jobs/us/",
+    jobLink: "https://www.apple.com/jobs/us/",
   },
   {
     title: "Back End Engineer",
