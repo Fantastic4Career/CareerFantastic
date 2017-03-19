@@ -64,7 +64,7 @@ indeed_client.search({
         console.log("here>>>>", this.jobApplied);
         return $.ajax({
           method: 'GET',
-          url: 'https://api.glassdoor.com/api/api.htm',
+          url: '//api.glassdoor.com/api/api.htm',
           crossDomain: true,
           dataType: 'jsonp',
           data: {

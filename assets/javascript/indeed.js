@@ -8,7 +8,7 @@ var Indeed = {};
 
     this.defaults = {'v': '2', 'format': 'json', 'publisher': this.publisher};
 
-    this.endpoint = 'https://api.indeed.com/ads/apisearch';
+    this.endpoint = '//api.indeed.com/ads/apisearch';
 
     this.search = function(params, success){
       this.validate_params(params);
