@@ -1,8 +1,10 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var favicon = require('serve-favicon');
 var indeed = require('indeed-jobs-api').getInstance("9049151526441005");
 var app = express();
 app.use(bodyParser());
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(express.static('public'));
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");

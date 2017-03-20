@@ -19,9 +19,10 @@
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "indeed-jobs-api": "^0.1.1"
+    "indeed-jobs-api": "^0.1.1",
+    "serve-favicon": "^2.4.1"
   },
-  "engine":{
+  "engine": {
     "node": "7.5.0"
   }
 }
