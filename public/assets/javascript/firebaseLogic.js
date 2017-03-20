@@ -35,7 +35,18 @@ var seedData = [
 
 //_.forEach(seedData, d=> jobsAppliedDB.push(d));
 //var jobApplied =[];
+$.ajax({
+  method: 'POST',
+  url : '/api',
+  dataType: 'application/json',
+  data: {
 
+  },
+  success: function(data) {
+      console.log('success');
+      console.log(data);
+  }
+})
 $.ajax({
   method: 'GET',
   url: 'https://api.indeed.com/ads/apisearch',
