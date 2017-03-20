@@ -44,7 +44,7 @@ $.ajax({
   },
   success: function(data) {
       console.log('success');
-      console.log(data);
+      console.log("indeed response from backend is>>>", data);
   }
 })
 $.ajax({

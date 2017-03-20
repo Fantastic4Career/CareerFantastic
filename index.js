@@ -28,13 +28,14 @@ app.post('/api', function (req, res) {
       function (results) {
       // do something with the success results
       console.log("indeed results>>>>", results);
+      res.end('success');
     },
       function (error) {
       // do something with the error results
       console.log("indeed error>>>", error);
     })
   ;
-  res.end('success');
+  
 });
 
 app.get('/', function(req,res) {
