@@ -31,11 +31,18 @@ app.post('/api', function (req, res) {
       function (results) {
       // do something with the success results
       console.log("indeed results>>>>", results);
-      res.end('success');
+      var response = {
+          status  : 200,
+          success : 'Updated Successfully'
+      }
+
+      res.end(JSON.stringify(response));
     },
       function (error) {
       // do something with the error results
       console.log("indeed error>>>", error);
+      res.status(403);
+      res.end('error');
     })
   ;
   

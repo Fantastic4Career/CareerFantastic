@@ -38,15 +38,20 @@ var seedData = [
 $.ajax({
   method: 'POST',
   url : '/api',
-  dataType: 'application/json',
+  dataType: 'json',
   data: {
-
+    a: 'b'
   },
-  success: function(data) {
-      console.log('success');
-      console.log("indeed response from backend is>>>", data);
+  success: function (data) {
+    console.log('success');
+    console.log("indeed response from backend is>>>", data);
+  },
+  error: function(error){
+    console.log("error is>>>", error);
   }
-})
+});
+
+/*
 $.ajax({
   method: 'GET',
   url: 'https://api.indeed.com/ads/apisearch',
@@ -129,5 +134,5 @@ var appliedJobsVue = new Vue({
     }
   }
 })
-
+*/
 
