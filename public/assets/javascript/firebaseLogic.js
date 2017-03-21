@@ -51,7 +51,7 @@ $.ajax({
   }
 });
 
-/*
+
 $.ajax({
   method: 'GET',
   url: 'https://api.indeed.com/ads/apisearch',
@@ -88,6 +88,7 @@ $.ajax({
         this.jobs.splice(this.jobs.indexOf(job), 1);
         let index = this.jobApplied.length;
         jobsAppliedDB.child(index).set(job);
+        let jobApplied = this.jobApplied;
         console.log("here>>>>", this.jobApplied);
         return $.ajax({
           method: 'GET',
@@ -108,7 +109,9 @@ $.ajax({
         })
         .done(function (response) {
           console.log("glassdoor response is>>>>", response);
-          jobsAppliedDB.child(index).child("glassdoor").set(response.response.employers)
+          jobsAppliedDB.child(index).child("glassdoor").set(response.response.employers);
+          console.log("now JobsApplied are >>>", jobApplied);
+          initMap();
         })
         .fail(function (error) {
           console.log("glassdoor error>>>", error);
@@ -134,5 +137,22 @@ var appliedJobsVue = new Vue({
     }
   }
 })
-*/
+
+function initMap() {
+  var myLatLng = {lat: -25.363, lng: 131.044};
+
+  // Create a map object and specify the DOM element for display.
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: myLatLng,
+    scrollwheel: false,
+    zoom: 4
+  });
+
+  // Create a marker and set its position.
+  var marker = new google.maps.Marker({
+    map: map,
+    position: myLatLng,
+    title: 'Hello World!'
+  });
+}
 

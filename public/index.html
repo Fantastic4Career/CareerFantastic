@@ -9,7 +9,7 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-
+<link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
 </head>
 
 <body>
@@ -40,7 +40,6 @@
 
   <div class="row">
     <div class="col-sm-6" id="search-results">
-
       <h4>Search Results</h4>
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -89,6 +88,8 @@
     </div>
   </div>
 
+  <div id="map" style="height: 300px; width: 400px"></div>
+
 
 
 
@@ -101,6 +102,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.4/vue.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vuefire/1.4.0/vuefire.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbFTVRcV979XmXvlgHMNcqrWcCz2EfbYs&callback=initMap"
+        async defer></script>
 <script src="./assets/javascript/indeed.js"></script>
 <script src="./assets/javascript/firebaseLogic.js"></script>
 </body>
