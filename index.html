@@ -21,7 +21,7 @@
     </div>
     <div class="form-group col-sm-3">
       <label for="location">Location</label>
-      <input type="text" class="form-control" id="location">
+      <input type="text" class="form-control" id="autocomplete">
     </div>
       <div class="form-group col-sm-4">
       <label for="key-ords">Key Words (Optional)</label>
@@ -31,8 +31,13 @@
       <label></label>
     <button type="submit" class="btn btn-default" id="search">Search</button>
     </div>
-
   </form>
+
+  <div class="row">
+    <div class="col-sm-12" id="select-skills">
+      
+    </div>
+  </div>
 
   <div class="row">
     <div class="col-sm-6" id="search-results">
@@ -72,13 +77,10 @@
 
     </div> <!--end right colume-->
   </div> <!--end row-->
-
-
-
-
-
-  </div> 
-
-
+  </div>
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.6/lodash.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbFTVRcV979XmXvlgHMNcqrWcCz2EfbYs&libraries=places&callback=initAutocomplete" async defer></script> 
+  <script src="./assets/javascript/test.js"></script>
 </body>
 </html>

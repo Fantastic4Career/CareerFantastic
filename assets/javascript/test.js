@@ -18,6 +18,11 @@ function initAutocomplete() {
 
 $(document).ready(function(){
   var skills = JSON.parse(localStorage.getItem('skills')) || [];
+  _.forEach(skills, function(skill){
+    var $skill = $("<span>").text(skill);
+    $("#select-skills").append($skill);
+  })
+  
   $("#search").on("click", function(e){
     e.preventDefault();
     var newSkills = $("#key-words").val().split(" ");
@@ -25,6 +30,9 @@ $(document).ready(function(){
     skills=skills.concat(newSkills);
     console.log("skills are >>>", skills);
     localStorage.setItem('skills', JSON.stringify(skills));
+    _.forEach(skills, function(skill){
+      var $skill = $("<span>").text(skill);
+      $("#select-skills").append($skill);
+    })
   });
-  $("")
 })
