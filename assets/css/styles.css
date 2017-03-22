@@ -1,0 +1,13 @@
+#search-results .panel .panel-heading {
+	background-color: #e7f5fe;
+}
+
+#selected-results .panel .panel-heading {
+	background-color: #fef0e7;
+}
+
+#logo {
+	position: relative;
+	left: -2px;
+	top: -5px;
+}
