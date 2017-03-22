@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Glass Door API</title>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/p5.js"></script>
+
+
+
+
+
+</head>
+
+<body>
+ 
+    
+<script type="text/javascript">
+	
+$( document ).ready(function() {
+//------------------------------------------------------------------------
+//        **** Some information about the Glassdoor API *****
+
+// Returns objects in JSON
+
+// Three APIs publicly accessible for free after registration to the site itself
+
+// Two of them are related two "Job searches which returns not that much depth", one is state by state 
+// job statistics. Job progression which is about, who gets what type of jobs in future. 
+
+// We will be using the API called "Companies API" in order to get company details. 
+
+// This is a sample request to view IBM.... you can append q and city etc to search more stuff 
+/*   
+http://api.glassdoor.com/api/api.htm?t.p=XXXXXX&t.k=XXXXXXXXX&userip=0.0.0.0&useragent=&format=json&v=1&action=employers&q=ibm
+
+
+*/
+
+
+// 							******* End of note on documentation.*********
+// ----------------------------------------------------------------------------------------------
+
+
+/*
+
+// I want to initialize the variables, that will be avaliable to this module.
+
+var companyName = "ibm";
+
+
+// --------------------------------------------------------------------------------
+
+
+// Once you have the variables, you are going to use those variables to build the queries. 
+
+
+
+
+
+    $.ajax({
+      url: "http://api.glassdoor.com/api/api.htm?t.p=133031&t.k=Fihlm10MyE&userip=0.0.0.0&useragent=&format=json&v=1&action=employers&q=ibm",
+      method: "GET"
+    }).done(function(response) {
+      console.log(response);
+    });
+
+
+*/
+
+
+
+// -------------------------------------------------------------------------------------
+
+
+// Return those querries in to some variables so that we can console.log them...
+
+var company = "ibm";
+     
+   
+    var queryURL = ("http://api.glassdoor.com/api/api.htm?t.p=133031&t.k=Fihlm10MyE&userip=0.0.0.0&useragent=&format=json&v=1&action=employers&q="+company);
+    
+    $.ajax({
+     url: queryURL,
+     method: "GET",
+     CrossDomain: true,
+     dataType: 'jsonp',
+
+    }).done(function(response) {
+     console.log(response);
+
+
+
+    });
+
+
+
+});
+
+
+
+</script>
+
+</body>
+
+</html>
