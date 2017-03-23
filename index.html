@@ -15,11 +15,11 @@
 
 <body>
   <div class="container">
-      <h1 class="text-center">Career Fantastic 
-        <img id="logo" src="assets/images/263px-Fantastic_Four_logo.svg.png" alt="4" width="40" height="40">
+      <h1 class="main-head text-center">Career Fantastic 
+        <img id="logo" src="assets/images/ff-logo.svg.png" alt="4" width="44" height="44">
       </h1>
 
-  <form>
+  <form class="search-form">
     <div class="form-group col-sm-4">
       <label for="job-title">Job Title</label>
       <input type="text-center" class="form-control" id="job-title">
@@ -28,115 +28,104 @@
       <label for="location">Location</label>
       <input type="text" class="form-control" id="location">
     </div>
-      <div class="form-group col-sm-4">
+    <div class="form-group col-sm-4">
       <label for="key-ords">Key Words (Optional)</label>
       <input type="text" class="form-control" id="key-words">
     </div>
-     <div class="form-group col-sm-1">
-      <label></label>
-    <button type="submit" class="btn btn-default" id="search">Search</button>
+    <div class="form-group col-sm-1">
+      <label>&nbsp;</label>
+      <button type="submit" class="search btn btn-default" id="search">Search</button>
     </div>
-
   </form>
 
   <div class="row">
     <div class="col-sm-6" id="search-results">
 
-      <h4>Search Results</h4>
+      <h5 class="sub-head">Search Results</h5>
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Panel title  
-          <button type ="submit" class="btn btn-default btn-xs pull-right">Add</button>
-          </h3>
+          <h5 class="panel-title">Panel Title  
+          <button type ="submit" class="search-results-btn btn btn-default btn-xs pull-right glyphicon glyphicon-plus"></button>
+          </h5>
         </div>
-        <div class="panel-body">Panel content</div>
+        <div class="search panel-body">Panel Content</div>
       </div>     
 
     </div> <!--end left colume-->
 
     <div class="col-sm-6" id="selected-results">
 
-      <h4>Selected Results</h4>
+      <h5 class="sub-head">Jobs Applying:&nbsp;<span id="jobs-applying-num"></span></h5>
 
       <div class="card-container manual-flip">
         <div class="card">
             <div class="front">
-              <!-- <div class=""> -->
-                <div class="panel-heading">
-                  <h3 class="panel-title">Panel title
-                  <button type ="submit" class="btn btn-default btn-xs pull-right">Delete</button>
-                  </h3> 
-                </div>
-                <div class="panel-body"> Panel content </div>
-                <div class="footer">
-                  <button class="btn btn-simple" rel="tooltip" title="Flip Card">
-                      <i class="fa fa-reply"></i> See More
-                  </button>
-                </div> 
-              <!-- </div> -->
-                 
-
+              <div class="panel-heading">
+                <h5 class="panel-title">Panel Title
+                <button type ="submit" class="btn btn-default btn-xs pull-right glyphicon glyphicon-trash"></button>
+                <button type ="submit" class="btn btn-default btn-xs pull-right glyphicon glyphicon-save"></button>
+                </h5> 
+              </div>
+              <div class="panel-body"> Panel Content </div>
+              <div class="footer">
+                <button class="btn btn-simple" rel="tooltip" title="Flip Card">
+                    <i class="fa fa-reply"></i> See More
+                </button>
+              </div> 
             </div> <!-- end front panel -->
 
             <div class="back">
-              <!-- <div class=""> -->
-                <div class="panel-heading">
-                  <h3 class="panel-title">xPanel title
-                  
-                  </h3> 
-                </div>
-                <div class="panel-body"> xPanel content </div>
-                              <div class="footer">
-                  <button class="btn btn-simple" rel="tooltip" title="Flip Card">
-                      <i class="fa fa-reply"></i> Go Back
-                  </button>
+              <div class="panel-heading">
+                <h5 class="panel-title">xPanel Title
+                  <button type ="submit" class="add btn btn-default btn-xs pull-right glyphicon glyphicon-save"></button>
+                </h5> 
               </div>
-              <!-- </div>               -->
-   
-
+              <div class="panel-body"> xPanel Content </div>
+              <div class="footer">
+                <button class="btn btn-simple" rel="tooltip" title="Flip Card">
+                    <i class="fa fa-reply"></i> Go Back
+                </button>
+              </div>
             </div> <!-- end back panel -->
         </div> <!-- end card -->
-      </div> <!-- end card-container -->   
+      </div> <!-- end card-container --> 
 
-            <div class="card-container manual-flip">
+      <div class="card-container manual-flip">
         <div class="card">
             <div class="front">
-              <!-- <div class=""> -->
-                <div class="panel-heading">
-                  <h3 class="panel-title">Panel title
-                  <button type ="submit" class="btn btn-default btn-xs pull-right">Delete</button>
-                  </h3> 
-                </div>
-                <div class="panel-body"> Panel content </div>
-                <div class="footer">
-                  <button class="btn btn-simple" rel="tooltip" title="Flip Card">
-                      <i class="fa fa-reply"></i> See More
-                  </button>
-                </div> 
-              <!-- </div> -->
-                 
-
+              <div class="panel-heading">
+                <h5 class="panel-title">Panel title
+                <button type ="submit" class="btn btn-default btn-xs pull-right glyphicon glyphicon-trash"></button>
+                <button type ="submit" class="btn btn-default btn-xs pull-right glyphicon glyphicon-save"></button>
+                </h5> 
+              </div>
+              <div class="panel-body"> Panel content </div>
+              <div class="footer">
+                <button class="btn btn-simple" rel="tooltip" title="Flip Card">
+                    <i class="fa fa-reply"></i> See More
+                </button>
+              </div> 
             </div> <!-- end front panel -->
 
             <div class="back">
-              <!-- <div class=""> -->
-                <div class="panel-heading">
-                  <h3 class="panel-title">xPanel title
-                  
-                  </h3> 
-                </div>
-                <div class="panel-body"> xPanel content </div>
-                              <div class="footer">
-                  <button class="btn btn-simple" rel="tooltip" title="Flip Card">
-                      <i class="fa fa-reply"></i> Back
-                  </button>
+              <div class="panel-heading">
+                <h5 class="panel-title">xPanel title
+                  <button type ="submit" class="add btn btn-default btn-xs pull-right glyphicon glyphicon-save"></button>
+                </h5> 
               </div>
-              <!-- </div>               -->
-   
-
+              <div class="panel-body"> xPanel content </div>
+              <div class="footer">
+                <button class="btn btn-simple" rel="tooltip" title="Flip Card">
+                    <i class="fa fa-reply"></i> Go Back
+                </button>
+              </div>
             </div> <!-- end back panel -->
         </div> <!-- end card -->
-      </div> <!-- end card-container -->         
+      </div> <!-- end card-container -->    
+
+
+
+       
 
 
 
