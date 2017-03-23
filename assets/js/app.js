@@ -8,7 +8,7 @@
         }
     }
 
-    $(document).on('click', '.btn', function(){
+    $(document).on('click', '.footer .btn', function(){
     	console.log(this);
     	rotateCard(this);
      });

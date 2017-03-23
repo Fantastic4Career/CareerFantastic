@@ -1,11 +1,20 @@
 #search-results .panel-heading {
-	/*background-color: #cfdce4;*/
-	background-color:#c6ddeb;
+    background-color: #333333;
+    border: 1px solid #333333;
+    opacity: 0.65;
+    filter: alpha(opacity=65); /* For IE8 and earlier */
+}
+
+#search-results .panel-default{
+    border: none;
+
 }
 
 #selected-results .panel-heading {
-	background-color: #cfebfd;
-	border: 1px solid #ddd;
+    background-color: #002366;
+    border: 1px solid #002366;
+    opacity: 0.65;
+    filter: alpha(opacity=65); /* For IE8 and earlier */
 }
 
 #logo {
@@ -15,29 +24,104 @@
 }
 
 body {
-	margin-top: 60px;
-	font-size: 14px;
-	font-family: "Helvetica Nueue",Arial,Verdana,sans-serif;
-	background-color: #E5E9ED;
-	background: url("../images/sf.jpg")no-repeat center center fixed;
-	  
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    margin-top: 20px;
+    font-family: "Helvetica Nueue",Arial,Verdana,sans-serif;
+    background: url("../images/sf.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+         -o-background-size: cover;
+            background-size: cover;
   
-    opacity: 0.90;
-    filter: alpha(opacity=90); /* For IE8 and earlier */
+   opacity: 0.85;
+   filter: alpha(opacity=85); /* For IE8 and earlier */
 
-     background-color: hsla(0,0%,100%,0.50);
-    background-blend-mode: overlay;
-
+   background-color: hsla(0,0%,100%,0.60);
+   background-blend-mode: overlay;
 }
+
+.main-head {
+    color: #002366;
+    font-size: 44px;
+}
+
+h5 {
+    font-weight: bold;
+    color: #002366;
+}
+
+h5.sub-head {
+    margin-left: 10px;
+}
+
+.search-form {
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+.search-form label {
+    color: #002366;
+}
+.panel-default{
+    margin-top: 12px;
+}
+
+.panel-title {
+    color: white;
+    font-weight: bold;
+}
+
 .btn:hover,
 .btn:focus,
 .btn:active{
     outline: 0 !important;
 }
+
+.btn-xs {
+    background-color: white;
+    border: solid 1px #002366;
+    color: #002366;
+}
+
+.front .glyphicon-save {
+    margin-right: 8px;
+}
+
+
+.btn-xs:hover, .btn-xs:active, .btn-xs:focus, .btn-xs:active:focus{
+    background-color: white;
+    color: black;
+    border: solid 1px #002366;
+}
+
+.search-results-btn.btn-xs {
+     border: solid 1px #333333;
+     color: #333333;
+}
+
+.search-results-btn.btn-xs:hover, .search-results-btn.btn-xs:active, 
+.search-results-btn.btn-xs:focus, .search-results-btn.btn-xs:active:focus{
+    color: black;
+    border: solid 1px #333333;
+}
+
+.search.btn {
+    color: #002366;
+    font-weight: bold;
+    border: solid 1px #002366;
+    background-color: transparent;
+}
+
+.search.btn:hover, .search.btn:active, .search.btn:focus, .search.btn:active:focus{
+    font-weight: bolder;
+    color: #002366;
+    border: solid 2px #002366;
+    background-color: transparent;
+}
+
+.search.panel-body, h5.panel-title {
+    font-weight: normal;
+}
+
 /* entire container, keeps perspective */
 .card-container {
 -webkit-perspective: 800px;
@@ -78,10 +162,10 @@ body {
 
 /* hide back of pane during swap */
 .front, .back {
--webkit-backface-visibility: hidden;
-   -moz-backface-visibility: hidden;
-     -o-backface-visibility: hidden;
-        backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+       -moz-backface-visibility: hidden;
+         -o-backface-visibility: hidden;
+            backface-visibility: hidden;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -96,11 +180,11 @@ body {
 
 /* back, initially hidden pane */
 .back {
--webkit-transform: rotateY( 180deg );
-   -moz-transform: rotateY( 180deg );
-     -o-transform: rotateY( 180deg );
-        transform: rotateY( 180deg );
-        z-index: 3;
+    -webkit-transform: rotateY( 180deg );
+       -moz-transform: rotateY( 180deg );
+         -o-transform: rotateY( 180deg );
+            transform: rotateY( 180deg );
+            z-index: 3;
 }
 
 /*        Style       */
