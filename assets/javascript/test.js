@@ -19,7 +19,7 @@ function initAutocomplete() {
 $(document).ready(function(){
   var skills = JSON.parse(localStorage.getItem('skills')) || [];
   _.forEach(skills, function(skill){
-    var $skill = $("<span>").text(skill);
+    var $skill = $("<li>").text(skill);
     $("#select-skills").append($skill);
   })
   
