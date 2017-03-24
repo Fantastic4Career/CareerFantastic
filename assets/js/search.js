@@ -4,6 +4,17 @@ var $searchButton = $("#search");
 var $jobTitleInput = $("#job-title");
 var $locationInput = $("#location");
 var selectedSkills = [];
+var config = {
+  apiKey: "AIzaSyA1g2zHte-oWy_n2r_BQCGZ7ydZnAaEK3k",
+  authDomain: "careerfantastic-e91d7.firebaseapp.com",
+  databaseURL: "https://careerfantastic-e91d7.firebaseio.com",
+  storageBucket: "careerfantastic-e91d7.appspot.com",
+  messagingSenderId: "389453357831"
+};
+firebase.initializeApp(config);
+var database = firebase.database();
+var jobsAppliedDB = database.ref("/test");
+var results =[];
 
 function initAutocomplete() {
   // Create the autocomplete object, restricting the search to geographical
@@ -45,19 +56,45 @@ $(document).ready(function(){
     populateAllSkillTags($selectSkills, skills);
   });
 
+  var newJobsVue = new Vue({
+    el: '#search-results',
+    data: {
+      jobs: []
+    },
+    firebase: {
+      jobApplied: jobsAppliedDB.limitToLast(25)
+    },
+    methods: {
+      updateData: function (data) {
+        this.jobs = data;
+      }, 
+      removeJob: function (job) {
+        // remove current job
+        console.log("here>>>>", this.jobApplied);
+        this.jobs.splice(this.jobs.indexOf(job), 1);
+        let index = this.jobApplied.length;
+        jobsAppliedDB.child(index).set(job);
+        console.log("here>>>>", this.jobApplied);
+        //
+        // put it into jobApplied array
+      }
+    }
+  });
+
   $searchButton.on("click", function(e){
     e.preventDefault();
     var title = $jobTitleInput.val().trim();
     var location = $locationInput.val().trim();
     $(".tag-cloud a").attr({"class":""});
-    
+    skills = [];
     // make a call to indeed/dice api here
     var jobQuery = selectedSkills.concat(title);
+    var skillsString = selectedSkills.join(" ");
     jobQuery = jobQuery.join(" ");
     selectedSkills= [];
     // make a call to indeed/dice api here
     //TODO: Indeed(q:jobQuery, l: location);
-    var a = 
+    var indeedAjax = 
     $.ajax({
       method: 'GET',
       url: 'https://api.indeed.com/ads/apisearch',
@@ -67,17 +104,66 @@ $(document).ready(function(){
         'v': '2', 
         'format': 'json', 
         'publisher': "9049151526441005",
-        q: 'javascript',
-        l: '94112',
+        q: jobQuery,
+        l: location,
         userip: 'localhost',
         useragent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2)',
         latlong: '1'
       }
     });// end ajax
-    Promise.resolve(a)
-    .then(function(results){
-      console.log("results are>>>>", results);
+
+    var queryURL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json";
+    var diceAjax = 
+    $.ajax({
+     url: queryURL,
+     method: "GET",
+     data: {
+      direct: 1,
+      //skill: skillsString,
+      text: title,
+      city: location,
+      page: 1,
+      pgcnt: 10,
+      sort: 1,
+      sd: 'd',
+     }
     })
+    
+
+    Promise.all([Promise.resolve(indeedAjax), Promise.resolve(diceAjax)])
+    .spread(function(indeedResponse, diceResponse){
+      
+      var indeedResults = _.get(indeedResponse,'results',[]);
+      console.log("indeedResults >>>", indeedResults);
+      indeedResults = _.map(indeedResults, function(d){
+        d.source_api = "Indeed";
+        d.company = d.company;
+        d.job_title= d.jobtitle;
+        d.location = d.city + " " +d.state;
+        d.skills = d.snippet;
+        d.date_posted= d.formattedRelativeTime;
+        return d;
+      })
+      
+  
+      var diceResults = _.get(diceResponse, 'resultItemList',[]);
+      console.log("diceResults>>>", diceResults);
+      diceResults = _.map(diceResults, function(d){
+        d.source_api = "Dice";
+        d.company = d.company;
+        d.job_title= d.jobTitle;
+        d.location = d.location;
+        d.skills = null;
+        d.date_posted= moment().diff(moment(d.date), 'days') + " days ago";
+        return d;
+      })
+
+      results = indeedResults.concat(diceResults);
+      console.log("results are>>>", results);
+      console.log("newVue is>>>", newJobsVue);
+      newJobsVue.updateData(results);
+    });
+    
 
   });
 })

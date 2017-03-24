@@ -58,32 +58,32 @@
     <div class="col-sm-6" id="search-results">
 
       <h5 class="sub-head">Search Results</h5>
-      <div class="panel panel-default">
+      <div class="panel panel-default" v-if="jobs.length>0" v-for="job in jobs">
         <div class="panel-heading">
-          <h5 class="panel-title company-name">Company Co
-          <button type ="submit" class="search-results-btn btn btn-default btn-xs pull-right glyphicon glyphicon-plus"></button>
+          <h5 class="panel-title company-name">{{job.company}}
+          <button type ="submit" class="search-results-btn btn btn-default btn-xs pull-right glyphicon glyphicon-plus" @click.stop="removeJob(job)"></button>
           </h5>
         </div>
         <div class="search panel-body">
          <table class="table table-striped">
  
-     <tbody>
-       <tr>
-        <td class="job-title" colspan="4">Job Title:</td>
+           <tbody>
+             <tr>
+              <td class="job-title" colspan="4">Job Title: {{job.job_title}}</td>
 
-       </tr>
-   
-       <tr>
-         <td class="location" >Location:</td>
-        <td class="date-posted">Date Posted:</td>
-       </tr>
-   
-       <tr>
-         <td class="skills-required" colspan="4">Skills Required:</td>
-       </tr>
- 
-     </tbody>
-   </table>
+             </tr>
+         
+             <tr>
+               <td class="location" >Location: {{job.location}}</td>
+              <td class="date-posted">Date Posted: {{job.date_posted}}</td>
+             </tr>
+         
+             <tr>
+               <td class="skills-required" colspan="4">Skills Required: {{job.skills}}</td>
+             </tr>
+       
+           </tbody>
+         </table>
           
         </div>
       </div>     
@@ -210,11 +210,15 @@
 
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.6/lodash.min.js"></script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbFTVRcV979XmXvlgHMNcqrWcCz2EfbYs&callback=initMap" type="text/javascript">    
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.5.0/bluebird.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.4/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vuefire/1.4.0/vuefire.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
   <script type="text/javascript" src="./assets/js/map.js"></script>
   <script src="./assets/js/search.js"></script>
   <script type="text/javascript" src="assets/js/app.js"></script>
-
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbFTVRcV979XmXvlgHMNcqrWcCz2EfbYs&callback=initMap" type="text/javascript">    
+  </script>
 </body>
 </html>
