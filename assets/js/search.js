@@ -46,6 +46,31 @@ function SkillTag(skill){
   }.bind(this))
 }
 
+var newJobsVue = new Vue({
+  el: '#search-results',
+  data: {
+    jobs: []
+  },
+  firebase: {
+    jobApplied: jobsAppliedDB.limitToLast(25)
+  },
+  methods: {
+    updateData: function (data) {
+      this.jobs = data;
+    }, 
+    removeJob: function (job) {
+      // remove current job
+      console.log("here>>>>", this.jobApplied);
+      this.jobs.splice(this.jobs.indexOf(job), 1);
+      let index = this.jobApplied.length;
+      jobsAppliedDB.child(index).set(job);
+      console.log("here>>>>", this.jobApplied);
+      //
+      // put it into jobApplied array
+    }
+  }
+});
+
 $(document).ready(function(){
   var skills = JSON.parse(localStorage.getItem('skills')) || [];
   populateAllSkillTags($selectSkills, skills)
@@ -58,30 +83,7 @@ $(document).ready(function(){
     populateAllSkillTags($selectSkills, skills);
   });
 
-  var newJobsVue = new Vue({
-    el: '#search-results',
-    data: {
-      jobs: []
-    },
-    firebase: {
-      jobApplied: jobsAppliedDB.limitToLast(25)
-    },
-    methods: {
-      updateData: function (data) {
-        this.jobs = data;
-      }, 
-      removeJob: function (job) {
-        // remove current job
-        console.log("here>>>>", this.jobApplied);
-        this.jobs.splice(this.jobs.indexOf(job), 1);
-        let index = this.jobApplied.length;
-        jobsAppliedDB.child(index).set(job);
-        console.log("here>>>>", this.jobApplied);
-        //
-        // put it into jobApplied array
-      }
-    }
-  });
+  
 
   $searchButton.on("click", function(e){
     e.preventDefault();

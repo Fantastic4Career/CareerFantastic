@@ -56,11 +56,11 @@
   <div class="row">
     <div class="col-sm-6" id="search-results">
 
-      <h5 class="sub-head">Search Results</h5>
-      <div class="panel panel-default" v-if="jobs.length>0" v-for="job in jobs">
-        <div class="panel-heading">
+      <h5 class="sub-head">Search Results</h5>     
+      <div class="panel panel-default" v-if="jobs.length>0">
+        <div class="panel-heading"  v-for="job in jobs">
           <h5 class="panel-title company-name">{{job.company}}
-          <button type ="submit" class="search-results-btn btn btn-default btn-xs pull-right glyphicon glyphicon-plus" @click.stop="removeJob(job)"></button>
+          <button type ="submit" class="search-results-btn btn btn-default btn-xs pull-right glyphicon glyphicon-plus"></button>
           </h5>
         </div>
         <div class="search panel-body">
@@ -74,7 +74,7 @@
               
              </tr>
              <tr>
-               <td class="skills-required" colspan="4">Skills Required:</td>
+               <td class="skills-required" colspan="4">Skills Required: {{job.skills}}</td>
              </tr>
              <tr>
                <td class="date-posted">Date Posted: {{job.date_posted}}</td>
@@ -83,10 +83,11 @@
            </tbody>
           </table>
         </div>
-      </div>     
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h5 class="panel-title company-name">Company
+      </div>  
+
+      <div class="panel panel-default" v-if="jobs.length<=0">
+        <div class="panel-heading" >
+          <h5 class="panel-title company-name">Company Name
           <button type ="submit" class="search-results-btn btn btn-default btn-xs pull-right glyphicon glyphicon-plus"></button>
           </h5>
         </div>
@@ -101,7 +102,7 @@
               
              </tr>
              <tr>
-               <td class="skills-required" colspan="4">Skills Required: {{job.skills}}</td>
+               <td class="skills-required" colspan="4">Skills Required:</td>
              </tr>
              <tr>
                <td class="date-posted">Date Posted:</td>
@@ -113,7 +114,8 @@
       </div>  
     </div> <!--end left colume-->
 
-    <div class="col-sm-6" id="selected-results">
+
+    <div class="col-sm-6" id="applied-results">
 
       <h5 class="sub-head">Jobs of Interest:&nbsp;<span id="jobs-applying-num"></span></h5>
 
@@ -231,8 +233,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.4/vue.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vuefire/1.4.0/vuefire.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
-  <script type="text/javascript" src="./assets/js/map.js"></script>
   <script type="text/javascript" src="./assets/js/search.js"></script>
+  <script type="text/javascript" src="./assets/js/map.js"></script>
   <script type="text/javascript" src="assets/js/app.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbFTVRcV979XmXvlgHMNcqrWcCz2EfbYs&libraries=places&callback=init" async defer></script>   
   </script>
