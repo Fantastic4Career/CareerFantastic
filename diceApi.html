@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dice API</title>
+
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+         
+</head>
+<body>
+
+
+<script>
+
+   var queryURL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?text=java"
+
+   $.ajax({
+     url: queryURL,
+     method: "GET"
+   }).done(function(response) {
+
+   console.log(response);    
+
+     $(".company").html(response.company);
+     $(".jobTitle").html(response.jobTitle);
+     $(".location").html(response.location);
+     $(".date").html(response.date);
+
+         // Creating a div to hold the job
+    var jobDiv = $("<div class='job'>");
+
+         // Storing the company data
+    var company = response.company;
+
+         // Creating an element to have the company displayed
+    var companyName = $("<p>").text("Company: " + company);
+
+         // Displaying the company name
+     jobDiv.append(companyName);
+
+         // Storing the Job Title
+    var jobTitle = response.jobTitle;
+
+         // Creating an element to hold the Job Title
+    var jobTitle = $("<p>").text("Title: " + jobTitle);
+
+         // Displaying the Job Title
+    jobDiv.append(jobTitle);
+   
+   });
+
+
+
+</script>
+
+    
+</body>
+</html>

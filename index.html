@@ -56,10 +56,10 @@
   <div class="row">
     <div class="col-sm-6" id="search-results">
 
-      <h5 class="sub-head">Search Results</h5>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h5 class="panel-title company-name">Company
+      <h5 class="sub-head">Search Results</h5>     
+      <div class="panel panel-default" v-if="jobs.length>0">
+        <div class="panel-heading"  v-for="job in jobs">
+          <h5 class="panel-title company-name">{{job.company}}
           <button type ="submit" class="search-results-btn btn btn-default btn-xs pull-right glyphicon glyphicon-plus"></button>
           </h5>
         </div>
@@ -67,26 +67,27 @@
          <table class="table table-striped">
            <tbody>
              <tr>
-              <td class="job-title" colspan="4">Job Title:</td>
+              <td class="job-title" colspan="4">Job Title: {{job.job_title}}</td>
              </tr>
              <tr>
-               <td class="address" colspan="4">Address:</td>
+               <td class="address" colspan="4">Address: {{job.location}}</td>
               
              </tr>
              <tr>
-               <td class="skills-required" colspan="4">Skills Required:</td>
+               <td class="skills-required" colspan="4">Skills Required: {{job.skills}}</td>
              </tr>
              <tr>
-               <td class="date-posted">Date Posted:</td>
+               <td class="date-posted">Date Posted: {{job.date_posted}}</td>
                <td class="rating" >Rating:</td>
              </tr>
            </tbody>
           </table>
         </div>
-      </div>     
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h5 class="panel-title company-name">Company
+      </div>  
+
+      <div class="panel panel-default" v-if="jobs.length<=0">
+        <div class="panel-heading" >
+          <h5 class="panel-title company-name">Company Name
           <button type ="submit" class="search-results-btn btn btn-default btn-xs pull-right glyphicon glyphicon-plus"></button>
           </h5>
         </div>
@@ -113,7 +114,8 @@
       </div>  
     </div> <!--end left colume-->
 
-    <div class="col-sm-6" id="selected-results">
+
+    <div class="col-sm-6" id="applied-results">
 
       <h5 class="sub-head">Jobs of Interest:&nbsp;<span id="jobs-applying-num"></span></h5>
 
@@ -226,10 +228,15 @@
 
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.6/lodash.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbFTVRcV979XmXvlgHMNcqrWcCz2EfbYs&libraries=places&callback=init" async defer></script>
-  <script type="text/javascript" src="./assets/js/map.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.5.0/bluebird.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.4/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vuefire/1.4.0/vuefire.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
   <script type="text/javascript" src="./assets/js/search.js"></script>
+  <script type="text/javascript" src="./assets/js/map.js"></script>
   <script type="text/javascript" src="assets/js/app.js"></script>
-
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbFTVRcV979XmXvlgHMNcqrWcCz2EfbYs&libraries=places&callback=init" async defer></script>   
+  </script>
 </body>
 </html>
