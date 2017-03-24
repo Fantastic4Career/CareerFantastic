@@ -60,31 +60,25 @@
       <h5 class="sub-head">Search Results</h5>
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h5 class="panel-title company-name">Company Co
+          <h5 class="panel-title company-name">Company
           <button type ="submit" class="search-results-btn btn btn-default btn-xs pull-right glyphicon glyphicon-plus"></button>
           </h5>
         </div>
         <div class="search panel-body">
          <table class="table table-striped">
- 
-     <tbody>
-       <tr>
-        <td class="job-title" colspan="4">Job Title:</td>
-
-       </tr>
-   
-       <tr>
-         <td class="location" >Location:</td>
-        <td class="date-posted">Date Posted:</td>
-       </tr>
-   
-       <tr>
-         <td class="skills-required" colspan="4">Skills Required:</td>
-       </tr>
- 
-     </tbody>
-   </table>
-          
+           <tbody>
+             <tr>
+              <td class="job-title" colspan="4">Job Title:</td>
+             </tr>
+             <tr>
+               <td class="location" >Address:</td>
+              <td class="date-posted">Date Posted:</td>
+             </tr>
+             <tr>
+               <td class="skills-required" colspan="4">Skills Required:</td>
+             </tr>
+           </tbody>
+          </table>
         </div>
       </div>     
 
@@ -99,12 +93,31 @@
           <div class="card">
               <div class="front">
                 <div class="panel-heading">
-                  <h5 class="panel-title">Panel Title
+                  <h5 class="panel-title">Company
                   <button type ="submit" class="btn btn-default btn-xs pull-right glyphicon glyphicon-trash"></button>
                   <button type ="submit" class="btn btn-default btn-xs pull-right glyphicon glyphicon-save"></button>
                   </h5> 
                 </div>
-                <div class="panel-body"> Panel Content </div>
+                <div class="panel-body"> 
+                <table class="table table-striped">
+                   <tbody>
+                     <tr>
+                      <td class="job-title">Job Title:</td>
+                      <td class="date-posted" >Glassdoor Rating:</td>
+                     </tr>
+                     <tr>
+                      <td class="location" colspan="4">Address:</td>
+                     </tr>
+                     <tr>
+                      <td class="date-posted">Date Posted:</td>
+                      <td class="date-applied">Date Applied</td> 
+                     </tr>
+                     <tr>
+                       <td class="skills-required" colspan="4">Skills Required:</td>
+                     </tr>
+                   </tbody>
+                </table>
+                </div>
                 <div class="footer">
                   <button class="btn btn-simple" rel="tooltip" title="Flip Card">
                       <i class="fa fa-reply"></i> See More
@@ -114,11 +127,17 @@
 
               <div class="back">
                 <div class="panel-heading">
-                  <h5 class="panel-title">xPanel Title
+                  <h5 class="panel-title">Company
                     <button type ="submit" class="add btn btn-default btn-xs pull-right glyphicon glyphicon-save"></button>
                   </h5> 
                 </div>
-                <div class="panel-body"> xPanel Content </div>
+                <div class="panel-body">
+                  <form>
+                    <div class="form-group">
+                      <textarea class="form-control" rows="7" id="comment" placeholder="comments"></textarea>
+                    </div>
+                  </form>
+                </div>
                 <div class="footer">
                   <button class="btn btn-simple" rel="tooltip" title="Flip Card">
                       <i class="fa fa-reply"></i> Go Back

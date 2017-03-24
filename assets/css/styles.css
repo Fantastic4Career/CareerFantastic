@@ -133,7 +133,7 @@ h5.sub-head {
    -moz-perspective: 800px;
      -o-perspective: 800px;
         perspective: 800px;
-        margin-bottom: 450px;
+        margin-bottom: 280px;
 }
 /* flip the pane when hovered */
 .card-container:not(.manual-flip):hover .card,
@@ -209,7 +209,7 @@ background-color: #e1effe;
 }
 
 .manual-flip .panel-body {
-	height: 300px;
+	height: 140px;
 }
 
 .card .footer {
