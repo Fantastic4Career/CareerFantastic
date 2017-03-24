@@ -57,161 +57,163 @@
     <div class="col-sm-6" id="search-results">
 
       <h5 class="sub-head">Search Results</h5>
-      <div class="panel panel-default" v-for="job in jobs">
-        <div class="panel-heading">
-          <h5 class="panel-title company-name">{{job.company}}
-          <button type ="submit" class="search-results-btn btn btn-default btn-xs pull-right glyphicon glyphicon-plus" @click.stop="removeJob(job)"></button>
-          </h5>
-        </div>
-        <div class="search panel-body">
-         <table class="table table-striped"> 
-           <tbody>
-             <tr>
-              <td class="job-title" colspan="4">Job Title: {{job.job_title}}</td>
+        <div class="scrollable">
+        <div class="panel panel-default" v-for="job in jobs">
+          <div class="panel-heading">
+            <h5 class="panel-title company-name">{{job.company}}
+            <button type ="submit" class="search-results-btn btn btn-default btn-xs pull-right glyphicon glyphicon-plus" @click.stop="removeJob(job)"></button>
+            </h5>
+          </div>
+          <div class="search panel-body">
+           <table class="table table-striped"> 
+             <tbody>
+               <tr>
+                <td class="job-title" colspan="4">Job Title: {{job.job_title}}</td>
 
-             </tr>
+               </tr>
+           
+               <tr>
+                 <td class="location" >Location: {{job.location}}</td>
+                <td class="date-posted">Date Posted: {{job.date_posted}}</td>
+               </tr>
+           
+               <tr>
+                 <td class="skills-required" colspan="4">Skills Required: {{job.skills}}</td>
+               </tr>
          
-             <tr>
-               <td class="location" >Location: {{job.location}}</td>
-              <td class="date-posted">Date Posted: {{job.date_posted}}</td>
-             </tr>
-         
-             <tr>
-               <td class="skills-required" colspan="4">Skills Required: {{job.skills}}</td>
-             </tr>
-       
-           </tbody>
-         </table>
-        </div>
-      </div>     
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h5 class="panel-title company-name">Company
-          <button type ="submit" class="search-results-btn btn btn-default btn-xs pull-right glyphicon glyphicon-plus"></button>
-          </h5>
-        </div>
-        <div class="search panel-body">
-         <table class="table table-striped">
-           <tbody>
-             <tr>
-              <td class="job-title" colspan="4">Job Title:</td>
-             </tr>
-             <tr>
-               <td class="address" colspan="4">Address:</td>
-              
-             </tr>
-             <tr>
-               <td class="skills-required" colspan="4">Skills Required:</td>
-             </tr>
-             <tr>
-               <td class="date-posted">Date Posted:</td>
-               <td class="rating" >Rating:</td>
-             </tr>
-           </tbody>
-          </table>
-        </div>
-      </div>  
+             </tbody>
+           </table>
+          </div>
+        </div>     
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h5 class="panel-title company-name">Company
+            <button type ="submit" class="search-results-btn btn btn-default btn-xs pull-right glyphicon glyphicon-plus"></button>
+            </h5>
+          </div>
+          <div class="search panel-body">
+           <table class="table table-striped">
+             <tbody>
+               <tr>
+                <td class="job-title" colspan="4">Job Title:</td>
+               </tr>
+               <tr>
+                 <td class="address" colspan="4">Address:</td>
+                
+               </tr>
+               <tr>
+                 <td class="skills-required" colspan="4">Skills Required:</td>
+               </tr>
+               <tr>
+                 <td class="date-posted">Date Posted:</td>
+                 <td class="rating" >Rating:</td>
+               </tr>
+             </tbody>
+            </table>
+          </div>
+        </div> 
+      </div>   <!--end scrollable left colume-->
     </div> <!--end left colume-->
 
     <div class="col-sm-6" id="selected-results">
 
       <h5 class="sub-head">Jobs of Interest:&nbsp;<span id="jobs-applying-num"></span></h5>
+        <div class="scrollable">
+        <div class="row">
+          <div class="card-container manual-flip">
+            <div class="card" v-for="job in jobs">
+                <div class="front">
+                  <div class="panel-heading">
+                    <h5 class="panel-title"><span contenteditable>Company</span>
+                    <button type ="submit" class="btn btn-default btn-xs pull-right glyphicon glyphicon-trash"></button>
+                    <button type ="submit" class="btn btn-default btn-xs pull-right glyphicon glyphicon-save"></button>
+                    </h5> 
+                  </div>
+                  <div class="panel-body"> 
+                    <table class="table table-striped">
+                     <tbody>
+                       <tr>
+                        <td class="job-title" colspan="4"><div contenteditable>Job Title:</div></td>
+                       </tr>
+                       <tr>
+                         <td class="address" colspan="4"><div contenteditable>Address:</div></td>
+                       </tr>
+                       <tr>
+                         <td class="skills-required" colspan="4"><div contenteditable>Skills Required:</div></td>
+                       </tr>
+                       <tr>
+                         <td class="date-posted"><div contenteditable>Date Posted:</div></td>
+                         <td class="rating"><div contenteditable>Rating:</div></td>
+                       </tr>
+                     </tbody>
+                    </table>
+                  </div>
+                  <div class="footer">
+                    <button class="btn btn-simple" rel="tooltip" title="Flip Card">
+                        <i class="fa fa-reply"></i> See More
+                    </button>
+                  </div> 
+                </div> <!-- end front panel -->
 
-      <div class="row">
-        <div class="card-container manual-flip">
-          <div class="card" v-for="job in jobs">
-              <div class="front">
-                <div class="panel-heading">
-                  <h5 class="panel-title"><span contenteditable>Company</span>
-                  <button type ="submit" class="btn btn-default btn-xs pull-right glyphicon glyphicon-trash"></button>
-                  <button type ="submit" class="btn btn-default btn-xs pull-right glyphicon glyphicon-save"></button>
-                  </h5> 
-                </div>
-                <div class="panel-body"> 
-                  <table class="table table-striped">
-                   <tbody>
-                     <tr>
-                      <td class="job-title" colspan="4"><div contenteditable>Job Title:</div></td>
-                     </tr>
-                     <tr>
-                       <td class="address" colspan="4"><div contenteditable>Address:</div></td>
-                     </tr>
-                     <tr>
-                       <td class="skills-required" colspan="4"><div contenteditable>Skills Required:</div></td>
-                     </tr>
-                     <tr>
-                       <td class="date-posted"><div contenteditable>Date Posted:</div></td>
-                       <td class="rating"><div contenteditable>Rating:</div></td>
-                     </tr>
-                   </tbody>
-                  </table>
-                </div>
-                <div class="footer">
-                  <button class="btn btn-simple" rel="tooltip" title="Flip Card">
-                      <i class="fa fa-reply"></i> See More
-                  </button>
-                </div> 
-              </div> <!-- end front panel -->
+                <div class="back">
+                  <div class="panel-heading">
+                    <h5 class="panel-title"><span contenteditable>Company</span>
+                      <button type ="submit" class="add btn btn-default btn-xs pull-right glyphicon glyphicon-save"></button>
+                    </h5> 
+                  </div>
+                  <div class="panel-body">
+                    <form>
+                      <div class="form-group">
+                        <div class="date-applied"> Applied:<input type="text" placeholder="dd/mm/yyyy"></div>
+                        <div class="date-interviewed">Interviewed:<input type="text" placeholder="dd/mm/yyyy"></div>
+                        <textarea class="form-control" rows="5" id="comment" placeholder="comments"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="footer">
+                    <button class="btn btn-simple" rel="tooltip" title="Flip Card">
+                        <i class="fa fa-reply"></i> Go Back
+                    </button>
+                  </div>
+                </div> <!-- end back panel -->
+            </div> <!-- end card -->
+          </div> <!-- end card-container --> 
+        </div> 
+        <div class="row">
+          <div class="card-container manual-flip">
+            <div class="card">
+                <div class="front">
+                  <div class="panel-heading">
+                    <h5 class="panel-title">Panel title
+                    <button type ="submit" class="btn btn-default btn-xs pull-right glyphicon glyphicon-trash"></button>
+                    <button type ="submit" class="btn btn-default btn-xs pull-right glyphicon glyphicon-save"></button>
+                    </h5> 
+                  </div>
+                  <div class="panel-body"> Panel content </div>
+                  <div class="footer">
+                    <button class="btn btn-simple" rel="tooltip" title="Flip Card">
+                        <i class="fa fa-reply"></i> See More
+                    </button>
+                  </div> 
+                </div> <!-- end front panel -->
 
-              <div class="back">
-                <div class="panel-heading">
-                  <h5 class="panel-title"><span contenteditable>Company</span>
-                    <button type ="submit" class="add btn btn-default btn-xs pull-right glyphicon glyphicon-save"></button>
-                  </h5> 
-                </div>
-                <div class="panel-body">
-                  <form>
-                    <div class="form-group">
-                      <div class="date-applied"> Applied:<input type="text" placeholder="dd/mm/yyyy"></div>
-                      <div class="date-interviewed">Interviewed:<input type="text" placeholder="dd/mm/yyyy"></div>
-                      <textarea class="form-control" rows="5" id="comment" placeholder="comments"></textarea>
-                    </div>
-                  </form>
-                </div>
-                <div class="footer">
-                  <button class="btn btn-simple" rel="tooltip" title="Flip Card">
-                      <i class="fa fa-reply"></i> Go Back
-                  </button>
-                </div>
-              </div> <!-- end back panel -->
-          </div> <!-- end card -->
-        </div> <!-- end card-container --> 
-      </div> 
-      <div class="row">
-        <div class="card-container manual-flip">
-          <div class="card">
-              <div class="front">
-                <div class="panel-heading">
-                  <h5 class="panel-title">Panel title
-                  <button type ="submit" class="btn btn-default btn-xs pull-right glyphicon glyphicon-trash"></button>
-                  <button type ="submit" class="btn btn-default btn-xs pull-right glyphicon glyphicon-save"></button>
-                  </h5> 
-                </div>
-                <div class="panel-body"> Panel content </div>
-                <div class="footer">
-                  <button class="btn btn-simple" rel="tooltip" title="Flip Card">
-                      <i class="fa fa-reply"></i> See More
-                  </button>
-                </div> 
-              </div> <!-- end front panel -->
-
-              <div class="back">
-                <div class="panel-heading">
-                  <h5 class="panel-title">xPanel title
-                    <button type ="submit" class="add btn btn-default btn-xs pull-right glyphicon glyphicon-save"></button>
-                  </h5> 
-                </div>
-                <div class="panel-body"> xPanel content </div>
-                <div class="footer">
-                  <button class="btn btn-simple" rel="tooltip" title="Flip Card">
-                      <i class="fa fa-reply"></i> Go Back
-                  </button>
-                </div>
-              </div> <!-- end back panel -->
-          </div> <!-- end card -->
-        </div> <!-- end card-container -->   
-      </div> <!-- end single right card row -->
-
+                <div class="back">
+                  <div class="panel-heading">
+                    <h5 class="panel-title">xPanel title
+                      <button type ="submit" class="add btn btn-default btn-xs pull-right glyphicon glyphicon-save"></button>
+                    </h5> 
+                  </div>
+                  <div class="panel-body"> xPanel content </div>
+                  <div class="footer">
+                    <button class="btn btn-simple" rel="tooltip" title="Flip Card">
+                        <i class="fa fa-reply"></i> Go Back
+                    </button>
+                  </div>
+                </div> <!-- end back panel -->
+            </div> <!-- end card -->
+          </div> <!-- end card-container -->   
+        </div> <!-- end single right card row -->
+      </div> <!--end scrollable right colume--> 
     </div> <!--end right colume--> 
   </div> <!--end row-->
 
