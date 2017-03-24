@@ -12,3 +12,8 @@
     	console.log(this);
     	rotateCard(this);
      });
+
+    function init(){
+        initAutocomplete();
+        initMap();
+    }
