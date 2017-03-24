@@ -32,7 +32,7 @@ body {
          -o-background-size: cover;
             background-size: cover;
 
-   background-color: hsla(0,0%,100%,0.60);
+   background-color: hsla(0,0%,100%,0.25);
    background-blend-mode: overlay;
 
    height: 100%;
@@ -67,12 +67,16 @@ h5.sub-head {
     color: #002366;
 }
 .panel-default{
-    margin-top: 12px;
+    margin: 10px 0 42px;
 }
 
 .panel-title {
-    color: white;
+    color: rgba(255, 255, 255, 1);
     font-weight: bold;
+}
+
+.panel-body {
+  color: rgba(0, 0, 0, .85);
 }
 
 .btn:hover,
@@ -133,7 +137,7 @@ h5.sub-head {
    -moz-perspective: 800px;
      -o-perspective: 800px;
         perspective: 800px;
-        margin-bottom: 259px;
+        margin-bottom: 279px;
 }
 /* flip the pane when hovered */
 .card-container:not(.manual-flip):hover .card,
@@ -217,7 +221,7 @@ background-color: #e1effe;
 }
 
 .manual-flip .panel-body {
-	height: 131px;
+	height: 129px;
 }
 
 .card .footer {
@@ -253,6 +257,10 @@ background-color: #e1effe;
   padding: 0;
   height: 400px;
   border: solid 10px white;
+}
+
+.container-footer{
+  height: 100px;
 }
 
 /*       Fix bug for IE      */
