@@ -133,7 +133,7 @@ h5.sub-head {
    -moz-perspective: 800px;
      -o-perspective: 800px;
         perspective: 800px;
-        margin-bottom: 450px;
+        margin-bottom: 259px;
 }
 /* flip the pane when hovered */
 .card-container:not(.manual-flip):hover .card,
@@ -208,8 +208,16 @@ h5.sub-head {
 background-color: #e1effe;
 }
 
+.back .date-applied, .back .date-interviewed{
+    display: inline;
+}
+
+.date-applied input{
+    margin-bottom: 6px;
+}
+
 .manual-flip .panel-body {
-	height: 300px;
+	height: 131px;
 }
 
 .card .footer {
@@ -244,6 +252,7 @@ background-color: #e1effe;
   margin: 0;
   padding: 0;
   height: 400px;
+  border: solid 10px white;
 }
 
 /*       Fix bug for IE      */
