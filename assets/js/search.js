@@ -5,6 +5,7 @@ var $jobTitleInput = $("#job-title");
 var $locationInput = $("#location");
 var selectedSkills = [];
 var results =[];
+var markers = [];
 
 function initAutocomplete() {
   // Create the autocomplete object, restricting the search to geographical
@@ -154,6 +155,11 @@ $(document).ready(function(){
       console.log("results are>>>", results);
       console.log("newVue is>>>", newJobsVue);
       newJobsVue.updateData(_.cloneDeep(results));
+      _.forEach(results, function(r){
+      if (r.lattitude && r.longtitude)
+        markers. push([r.company, r.lattitude, r.longitude]);
+      });
+
     });
     
 
