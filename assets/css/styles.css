@@ -54,6 +54,10 @@ body {
    filter: alpha(opacity=85); /* For IE8 and earlier */
 }
 
+#search-results h5 , #selected-results h5 {
+  color: rgb(0,35,102, 1);
+}
+
 .main-head {
     color: #002366;
     font-size: 44px;
