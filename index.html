@@ -53,7 +53,6 @@
     </div>
   </form>
 
-  
   <div class="row">
     <div class="col-sm-6" id="search-results">
 
@@ -71,17 +70,47 @@
               <td class="job-title" colspan="4">Job Title:</td>
              </tr>
              <tr>
-               <td class="location" >Address:</td>
-              <td class="date-posted">Date Posted:</td>
+               <td class="address" colspan="4">Address:</td>
+              
              </tr>
              <tr>
                <td class="skills-required" colspan="4">Skills Required:</td>
+             </tr>
+             <tr>
+               <td class="date-posted">Date Posted:</td>
+               <td class="rating" >Rating:</td>
              </tr>
            </tbody>
           </table>
         </div>
       </div>     
-
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h5 class="panel-title company-name">Company
+          <button type ="submit" class="search-results-btn btn btn-default btn-xs pull-right glyphicon glyphicon-plus"></button>
+          </h5>
+        </div>
+        <div class="search panel-body">
+         <table class="table table-striped">
+           <tbody>
+             <tr>
+              <td class="job-title" colspan="4">Job Title:</td>
+             </tr>
+             <tr>
+               <td class="address" colspan="4">Address:</td>
+              
+             </tr>
+             <tr>
+               <td class="skills-required" colspan="4">Skills Required:</td>
+             </tr>
+             <tr>
+               <td class="date-posted">Date Posted:</td>
+               <td class="rating" >Rating:</td>
+             </tr>
+           </tbody>
+          </table>
+        </div>
+      </div>  
     </div> <!--end left colume-->
 
     <div class="col-sm-6" id="selected-results">
@@ -99,24 +128,24 @@
                   </h5> 
                 </div>
                 <div class="panel-body"> 
-                <table class="table table-striped">
+                  <table class="table table-striped">
                    <tbody>
                      <tr>
-                      <td class="job-title">Job Title:</td>
-                      <td class="date-posted" >Glassdoor Rating:</td>
+                      <td class="job-title" colspan="4">Job Title:</td>
                      </tr>
                      <tr>
-                      <td class="location" colspan="4">Address:</td>
-                     </tr>
-                     <tr>
-                      <td class="date-posted">Date Posted:</td>
-                      <td class="date-applied">Date Applied</td> 
+                       <td class="address" colspan="4">Address:</td>
+                      
                      </tr>
                      <tr>
                        <td class="skills-required" colspan="4">Skills Required:</td>
                      </tr>
+                     <tr>
+                       <td class="date-posted">Date Posted:</td>
+                       <td class="rating" >Rating:</td>
+                     </tr>
                    </tbody>
-                </table>
+                  </table>
                 </div>
                 <div class="footer">
                   <button class="btn btn-simple" rel="tooltip" title="Flip Card">
@@ -134,7 +163,9 @@
                 <div class="panel-body">
                   <form>
                     <div class="form-group">
-                      <textarea class="form-control" rows="7" id="comment" placeholder="comments"></textarea>
+                      <div class="date-applied"> Applied:<input type="text" placeholder="dd/mm/yyyy"></div>
+                      <div class="date-interviewed">Interviewed:<input type="text" placeholder="dd/mm/yyyy"></div>
+                      <textarea class="form-control" rows="5" id="comment" placeholder="comments"></textarea>
                     </div>
                   </form>
                 </div>
@@ -181,46 +212,12 @@
           </div> <!-- end card -->
         </div> <!-- end card-container -->   
       </div> <!-- end single right card row -->
-      <div class="row">
-            <div class="card-container manual-flip">
-              <div class="card">
-                  <div class="front">
-                    <div class="panel-heading">
-                      <h5 class="panel-title">Panel title
-                      <button type ="submit" class="btn btn-default btn-xs pull-right glyphicon glyphicon-trash"></button>
-                      <button type ="submit" class="btn btn-default btn-xs pull-right glyphicon glyphicon-save"></button>
-                      </h5> 
-                    </div>
-                    <div class="panel-body"> Panel content </div>
-                    <div class="footer">
-                      <button class="btn btn-simple" rel="tooltip" title="Flip Card">
-                          <i class="fa fa-reply"></i> See More
-                      </button>
-                    </div> 
-                  </div> <!-- end front panel -->
 
-                  <div class="back">
-                    <div class="panel-heading">
-                      <h5 class="panel-title">xPanel title
-                        <button type ="submit" class="add btn btn-default btn-xs pull-right glyphicon glyphicon-save"></button>
-                      </h5> 
-                    </div>
-                    <div class="panel-body"> xPanel content </div>
-                    <div class="footer">
-                      <button class="btn btn-simple" rel="tooltip" title="Flip Card">
-                          <i class="fa fa-reply"></i> Go Back
-                      </button>
-                    </div>
-                  </div> <!-- end back panel -->
-              </div> <!-- end card -->
-            </div> <!-- end card-container -->  
-       </div> <!-- end single right card row  -->
     </div> <!--end right colume--> 
   </div> <!--end row-->
 
   <div class="row">
       <div class="map-wrapper col-sm-12">
-        <h4>Job Locations</h4>
         <div id="googleMap" style="width:100%;height:400px;"></div>
       </div>
   </div>
