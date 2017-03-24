@@ -2,9 +2,16 @@
 <html>
 <head>
 <!-- Latest compiled and minified CSS -->
+<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
 
 </head>
 
@@ -35,45 +42,40 @@
 
   </form>
   
-
+  
   
   <div class="row">
     <div class="col-sm-6" id="search-results">
-
-
       <h4>Search Results</h4>
 
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <button type ="submit" class="btn btn-default btn-xs pull-right">Add Job
-          </button>
+    <div class="panel panel-default">
+      <div class="panel-heading">
 
-
-  <form>
-  <div class="form-group">
-    <input type="text" class="form-control" id="company-name" placeholder="Company Name">
-  </div>
-        <div class="form-group">
-    <input type="text" class="form-control" id="job-title" placeholder="Job Title">
-  </div>
-  <div class="form-group">
-    <input type="text" class="form-control" id="skills-required" placeholder="Skills Required">
-  </div>
-  <div class="form-group">
-    <input type="text" class="form-control" id="location" placeholder="Location">
-  </div>
-  <div class="form-group">
-    <input type="text" class="form-control" id="date-posted" placeholder="Date Posted">
-  </div>
-  </form>
-
-
+    <table class="table table-striped">
+      <thead>
+        <th><button type ="submit" class="btn btn-default btn-xs pull-right">Add Job</button></th>
+      </thead>
+  
+      <tbody>
+        <tr>
+          <td class="company-name">Company:</td>
+          <td class="date-posted">Date Posted:</td>
+        </tr>
+    
+        <tr>
+          <td class="job-title">Job Title:</td>
+          <td class="location">Location:</td>
+        </tr>
+    
+        <tr>
+          <td class="skills-required" colspan="4">Skills Required:</td>
+        </tr>
+  
+      </tbody>
+    </table>
 
 </div>
-
-
-
-     </div>
+</div>
     
       
 
@@ -99,14 +101,12 @@
         </div>
         <div class="panel-body">Panel content</div>
         </div>
+
     </div> <!--end right colume-->
   </div> <!--end row-->
 
-
-    
-
-
   </div> 
+
 
 
 </body>
