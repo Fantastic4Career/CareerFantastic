@@ -31,12 +31,17 @@ body {
        -moz-background-size: cover;
          -o-background-size: cover;
             background-size: cover;
-  
-   opacity: 0.85;
-   filter: alpha(opacity=85); /* For IE8 and earlier */
 
    background-color: hsla(0,0%,100%,0.60);
    background-blend-mode: overlay;
+
+   height: 100%;
+}
+
+#search-results, #selected-results {
+   opacity: 0.85;
+   filter: alpha(opacity=85); /* For IE8 and earlier */
+
 }
 
 .main-head {
@@ -235,6 +240,11 @@ background-color: #e1effe;
     font-size: 16px;
 }
 
+#googleMap {
+  margin: 0;
+  padding: 0;
+  height: 400px;
+}
 
 /*       Fix bug for IE      */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
