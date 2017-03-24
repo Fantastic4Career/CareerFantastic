@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Glass Door API</title>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/p5.js"></script>
+
+
+
+
+
+</head>
+
+<body>
+ 
+    
+
+<div id="everything" >
+  
+
+
+</div>
+<script type="text/javascript">
+  
+$( document ).ready(function() {
+//------------------------------------------------------------------------
+//        **** Some information about the Glassdoor API *****
+
+// Returns objects in JSON
+
+// Three APIs publicly accessible for free after registration to the site itself
+
+// Two of them are related two "Job searches which returns not that much depth", one is state by state 
+// job statistics. Job progression which is about, who gets what type of jobs in future. 
+
+// We will be using the API called "Companies API" in order to get company details. 
+
+// This is a sample request to view IBM.... you can append q and city etc to search more stuff 
+/*   
+http://api.glassdoor.com/api/api.htm?t.p=XXXXXX&t.k=XXXXXXXXX&userip=0.0.0.0&useragent=&format=json&v=1&action=employers&q=ibm
+
+
+*/
+
+
+//              ******* End of note on documentation.*********
+// ----------------------------------------------------------------------------------------------
+
+
+/*
+
+// I want to initialize the variables, that will be avaliable to this module.
+
+var companyName = "ibm";
+
+
+// --------------------------------------------------------------------------------
+
+
+// Once you have the variables, you are going to use those variables to build the queries. 
+
+
+
+
+
+    $.ajax({
+      url: "http://api.glassdoor.com/api/api.htm?t.p=133031&t.k=Fihlm10MyE&userip=0.0.0.0&useragent=&format=json&v=1&action=employers&q=ibm",
+      method: "GET"
+    }).done(function(response) {
+      console.log(response);
+    });
+
+
+*/
+
+
+
+// -------------------------------------------------------------------------------------
+
+
+// Return those querries in to some variables so that we can console.log them...
+
+var company = "ibm";
+
+// Get a reference to the database service
+var database = firebase.database();
+     
+   
+    var queryURL = ("http://api.glassdoor.com/api/api.htm?t.p=133031&t.k=Fihlm10MyE&userip=0.0.0.0&useragent=&format=json&v=1&action=employers&q="+company);
+    
+    $.ajax({
+     url: queryURL,
+     method: "GET",
+     CrossDomain: true,
+     dataType: 'jsonp',
+
+    }).done(function(response) {
+     //console.log(response);
+
+     for (var i = 0; i < response.response.employers.length; i++) {
+       
+
+       var x = (response.response.employers[i].compensationAndBenefitsRating);
+       var y = (response.response.employers[i].name);
+       var z = (response.response.employers[i].featuredReview.id);
+
+
+       // Create a new post in the firebase
+
+
+     
+
+          
+     $("#everything").append("<button class='name-co' data-company='"+y+"' data-rating='"+x+"' data-id='"+z+"'>"+ y + "</button>");
+
+ }
+
+
+$(document).on('click', '.name-co', function(event){
+
+  // ----- todo add a functionality to the class .name-co
+
+console.log(event);
+  // When button is clicked go to that number within the employers array
+      database.ref("/companyReference").push({
+      
+        
+  
+      companyRating: event.currentTarget.dataset.rating,
+      companyName: event.currentTarget.dataset.company,
+      companyId: event.currentTarget.dataset.id 
+      
+   
+
+      
+    });
+
+  //Show the ranking of that given company....... 
+/*
+
+$(this);
+
+console.log(this);
+
+*/
+        
+     }); 
+
+
+    /* $(document).on('click', '#pick-your-crystal .crystal', function(){
+        $('#your-crystal').append($(this));
+        $('#available-crystal-to-compete').append($('#pick-your-crystal .crystal'));
+        $(this).addClass('border-blue');
+        $('#available-crystal-to-compete .crystal').addClass('border-red');
+     }); */ 
+
+ 
+
+
+
+//.click(function () { alert('hi')
+
+
+
+    
+
+
+
+    });
+
+
+
+});
+
+
+
+  // Initialize Firebase
+
+
+
+
+</script>
+ <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+
+ <script type="text/javascript">
+  var config = {
+    apiKey: "AIzaSyA1g2zHte-oWy_n2r_BQCGZ7ydZnAaEK3k",
+    authDomain: "careerfantastic-e91d7.firebaseapp.com",
+    databaseURL: "https://careerfantastic-e91d7.firebaseio.com",
+    storageBucket: "careerfantastic-e91d7.appspot.com",
+    messagingSenderId: "389453357831"
+  };
+  firebase.initializeApp(config);
+
+  </script>
+
+</body>
+
+</html>
