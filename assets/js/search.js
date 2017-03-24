@@ -57,6 +57,28 @@ $(document).ready(function(){
     selectedSkills= [];
     // make a call to indeed/dice api here
     //TODO: Indeed(q:jobQuery, l: location);
+    var a = 
+    $.ajax({
+      method: 'GET',
+      url: 'https://api.indeed.com/ads/apisearch',
+      crossDomain: true,
+      dataType: 'jsonp',
+      data: {
+        'v': '2', 
+        'format': 'json', 
+        'publisher': "9049151526441005",
+        q: 'javascript',
+        l: '94112',
+        userip: 'localhost',
+        useragent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2)',
+        latlong: '1'
+      }
+    });// end ajax
+    Promise.resolve(a)
+    .then(function(results){
+      console.log("results are>>>>", results);
+    })
+
   });
 })
 
