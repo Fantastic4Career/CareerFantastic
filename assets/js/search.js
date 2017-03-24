@@ -163,7 +163,7 @@ $(document).ready(function(){
       results = indeedResults.concat(diceResults);
       console.log("results are>>>", results);
       console.log("newVue is>>>", newJobsVue);
-      newJobsVue.updateData(results);
+      newJobsVue.updateData(_.cloneDeep(results));
     });
     
 
