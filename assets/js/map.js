@@ -10,29 +10,13 @@ function initMap() {
 	var bounds = new google.maps.LatLngBounds();
 
 	// Multiple Markers
-	var markers = [
-	    ['Life 360', 37.780197,-122.396812],
-	    ['Drop Box', 37.7810361,-122.3948917],
-	    ['Twilio', 37.7879277,-122.3937508],
-	    ['LinkedIn', 37.7866023,-122.4004687],
-	];
+	// var markers = [
+	//     ['Life 360', 37.780197,-122.396812],
+	//     ['Drop Box', 37.7810361,-122.3948917],
+	//     ['Twilio', 37.7879277,-122.3937508],
+	//     ['LinkedIn', 37.7866023,-122.4004687],
+	// ];
 
-	
-	// Info Window Content
-	var infoWindowContent = [
-	    ['<div class="info_content">' +
-	    	'<h3>Life 360</h3>' +
-	     '</div>'],
-	    ['<div class="info_content">' +
-	    '<h3>Drop Box</h3>' +
-	    '</div>'],
-	    ['<div class="info_content">' +
-	    	'<h3>Twilio</h3>' +
-	     '</div>'],
-	    ['<div class="info_content">' +
-	    '<h3>LinkedIn</h3>' +
-	    '</div>']
-	];
 
 	var infoWindow = new google.maps.InfoWindow();
 	var marker;
@@ -50,7 +34,7 @@ function initMap() {
      	// Allow each marker to have an info window    
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
-                infoWindow.setContent(infoWindowContent[i][0]);
+                infoWindow.setContent("<h6>" + markers[i][0] + "</h6>");
                 infoWindow.open(map, marker);
             }
         })(marker, i));
