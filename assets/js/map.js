@@ -52,6 +52,29 @@ function initMap() {
         map.fitBounds(bounds);
 
     }
+
+    jobsAppliedDB.on("value", function(snapshot){
+      console.log("map here is>>>", map);
+      var appliedJobs = snapshot.val() || {};
+      _.forEach(appliedJobs, function(job, key){
+        console.log("job is>>>", job);
+        if (job.latitude && job.longitude) {
+          console.log("we are here>>>");
+          var newmarker = new google.maps.Marker({
+            position: new google.maps.LatLng(job.latitude,job.longitude),
+            map: map,
+            title: job.company
+          });
+          function setContent(marker) {
+
+          }
+          newmarker.addListener('click', function() {
+            infowindow.setContent("<h6>" + newmarker.title + "</h6>");
+            infowindow.open(map, newmarker);
+          });
+        }
+      })
+    })
 }
 
 function getAddress(geocoder, map, lat, long) {

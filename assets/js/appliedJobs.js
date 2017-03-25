@@ -20,6 +20,8 @@ var appliedJobsVue = new Vue({
       console.log("dbIndex is>>>", dbIndex);
       console.log(job.location);
       jobsAppliedDB.child(dbIndex).update(_.omit(job, ".key"));
-    }
-  }
+    }, 
+  }, 
+  mounted() {
+  },
 })
