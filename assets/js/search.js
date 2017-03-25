@@ -68,8 +68,22 @@ $(document).ready(function(){
         let index = this.jobApplied.length;
         jobsAppliedDB.child(index).set(job);
         console.log("here>>>>", this.jobApplied);
-        //
-        // put it into jobApplied array
+        var glassdoorQueryURL = ("http://api.glassdoor.com/api/api.htm?t.p=133031&t.k=Fihlm10MyE&userip=0.0.0.0&useragent=&format=json&v=1&action=employers");
+        
+        $.ajax({
+         url: queryURL,
+         method: "GET",
+         CrossDomain: true,
+         dataType: 'jsonp',
+         data: {
+          q: job.company
+         }
+        })
+        .done(function(response){
+          console.log("response is >>>", response);
+          //jobsAppliedDB.child(index).child("glassdoor").set(response.response.employers);
+        })
+        
       }
     }
   });
