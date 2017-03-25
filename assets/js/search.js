@@ -149,7 +149,7 @@ $(document).ready(function(){
         d.company = d.company;
         d.job_title= d.jobtitle;
         d.location = d.city + " " +d.state;
-        d.skills = d.snippet;
+        d.skills = parseJobSkills(d.snippet);
         d.date_posted= d.formattedRelativeTime;
         return d;
       })
