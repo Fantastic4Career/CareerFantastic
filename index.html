@@ -130,14 +130,15 @@
                         <td class="job-title" colspan="4"><div>Job Title: <input class="content-editable" v-model="job.job_title" type="text"/></div></td>
                        </tr>
                        <tr>
-                         <td class="address" colspan="4"><div>Address: <input class="content-editable" v-model="job.location" type="text"/></div></td>
+                         <!-- <td class="address" colspan="4"><div>Address: <input class="content-editable" v-model="job.location" type="text"/></div></td>
+ -->                            <td class="skills-required" colspan="4"><div>Skills Required: <input class="content-editable" v-model="job.skills" type="text"/></div></td>
                        </tr>
                        <tr>
-                         <td class="skills-required" colspan="4"><div>Skills Required: <input class="content-editable" v-model="job.skills" type="text"/></div></td>
+                       <td class="date-posted"><div>Date Posted: <input class="content-editable" v-model="job.date_posted" lazy type="date" style="max-width: 60%;" /></div></td>
                        </tr>
                        <tr>
-                         <td class="date-posted"><div>Date Posted: <input class="content-editable" v-model="job.date_posted" lazy type="date" style="width: 60%;" /></div></td>
-                         <td class="rating" style="width:40%"><div>Rating: <span v-show="job.glassdoor_rating">{{job.glassdoor_rating}}</span>
+                        
+                         <td class="rating" style="max-width:40%%"><div>Rating: <span v-show="job.glassdoor_rating">{{job.glassdoor_rating}}</span>
                          <select v-show="!job.glassdoor_rating" v-model="job.glassdoor_rating">
                            <option v-for="option in job.glassdoor" v-bind:value="option.overallRating">
                              {{ option.name }}
