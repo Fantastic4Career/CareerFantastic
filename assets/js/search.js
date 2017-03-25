@@ -65,13 +65,16 @@ $(document).ready(function(){
         // remove current job
         console.log("here>>>>", this.jobApplied);
         this.jobs.splice(this.jobs.indexOf(job), 1);
-        let index = this.jobApplied.length;
+        var lastIndex = this.jobApplied.length -1;
+        var lastElement = this.jobApplied[lastIndex];
+        console.log("lastElement is>>>", lastElement);
+        var index = lastElement[".key"];
         jobsAppliedDB.child(index).set(job);
         console.log("here>>>>", this.jobApplied);
         var glassdoorQueryURL = ("http://api.glassdoor.com/api/api.htm?t.p=133031&t.k=Fihlm10MyE&userip=0.0.0.0&useragent=&format=json&v=1&action=employers");
         
         $.ajax({
-         url: queryURL,
+         url: glassdoorQueryURL,
          method: "GET",
          CrossDomain: true,
          dataType: 'jsonp',
@@ -80,8 +83,7 @@ $(document).ready(function(){
          }
         })
         .done(function(response){
-          console.log("response is >>>", response);
-          //jobsAppliedDB.child(index).child("glassdoor").set(response.response.employers);
+          jobsAppliedDB.child(index).child("glassdoor").set(companyInfos);
         })
         
       }
