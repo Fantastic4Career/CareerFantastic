@@ -6,6 +6,7 @@
 <link href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 <link rel="stylesheet" type="text/css" href="assets/css/searchBar.css">
+<link rel="stylesheet" type="text/css" href="assets/css/select.css">
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -142,8 +143,14 @@
                          <td class="skills-required" colspan="4"><div>Skills Required: <input class="content-editable" v-model="job.skills" type="text"/></div></td>
                        </tr>
                        <tr>
-                         <td class="date-posted"><div>Date Posted: <input class="content-editable" v-model="job.date_posted" type="date"/></div></td>
-                         <td class="rating"><div contenteditable>Rating:</div></td>
+                         <td class="date-posted"><div>Date Posted: <input class="content-editable" v-model="job.date_posted" type="date" style="width: 60%;" /></div></td>
+                         <td class="rating" style="width:40%"><div>Rating: <span v-show="job.glassdoor_rating">{{job.glassdoor_rating}}</span>
+                         <select v-show="!job.glassdoor_rating" v-model="job.glassdoor_rating">
+                           <option v-for="option in job.glassdoor" v-bind:value="option.overallRating">
+                             {{ option.name }}
+                           </option>
+                         </select>
+                         </div></td>
                        </tr>
                      </tbody>
                     </table>
@@ -157,16 +164,16 @@
 
                 <div class="back">
                   <div class="panel-heading">
-                    <h5 class="panel-title"><span contenteditable>Company</span>
-                      <button type ="submit" class="add btn btn-default btn-xs pull-right glyphicon glyphicon-save"></button>
+                    <h5 class="panel-title"><span>{{job.company}}</span>
+                      <button type ="submit" class="add btn btn-default btn-xs pull-right glyphicon glyphicon-save" @click.stop="updateJob(job)"></button>
                     </h5> 
                   </div>
                   <div class="panel-body">
                     <form>
                       <div class="form-group">
-                        <div class="date-applied"> Applied:<input type="text" placeholder="dd/mm/yyyy"></div>
-                        <div class="date-interviewed">Interviewed:<input type="text" placeholder="dd/mm/yyyy"></div>
-                        <textarea class="form-control" rows="5" id="comment" placeholder="comments"></textarea>
+                        <div class="date-applied"> Applied:<input type="date" placeholder="dd/mm/yyyy" v-model="job.date_applied"></div>
+                        <div class="date-interviewed">Interviewed:<input type="date" placeholder="dd/mm/yyyy" v-model="job.interviewed"></div>
+                        <textarea class="form-control" rows="5" id="comment" placeholder="comments" v-model="job.comments"></textarea>
                       </div>
                     </form>
                   </div>
