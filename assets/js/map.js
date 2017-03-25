@@ -1,7 +1,3 @@
-var geocoder;
-var infowindow;
-var map;
-var address;
 
 function initMap() {
 
@@ -13,22 +9,18 @@ function initMap() {
 	var map =new google.maps.Map(document.getElementById("googleMap"),mapProp);
 	var bounds = new google.maps.LatLngBounds();
 
-	// Multiple Markers testing
-	var markers = [
-	    ['Life 360', 37.780197,-122.396812],
-	    ['Drop Box', 37.7810361,-122.3948917],
-	    ['Twilio', 37.7879277,-122.3937508],
-	    ['LinkedIn', 37.7866023,-122.4004687],
-	];
+	// // Multiple Markers testing
+	// var markers = [
+	//     ['Life 360', 37.780197,-122.396812],
+	//     ['Drop Box', 37.7810361,-122.3948917],
+	//     ['Twilio', 37.7879277,-122.3937508],
+	//     ['LinkedIn', 37.7866023,-122.4004687],
+	// ];
 
-	var geocoder = new google.maps.Geocoder;
+
   	var infowindow = new google.maps.InfoWindow;
 
 	var marker;
-
-
-	address = getAddress(geocoder, map, markers[0][1], markers[0][2]);
-	console.log("address>>>" + address);
 
     // Loop through our array of markers & place each one on the map  
     for( var i = 0; i < markers.length; i++ ) {
@@ -75,26 +67,6 @@ function initMap() {
         }
       })
     })
-}
-
-function getAddress(geocoder, map, lat, long) {
-  var latlng = {lat: lat, lng: long};
-  geocoder.geocode({'location': latlng}, function(results, status) {
-  	console.log("googleMap");
-  	console.log(geocoder);
-    if (status === 'OK') {
-      if (results[1]) {
-      	var address = results[1].formatted_address;
-      	console.log(results[1].formatted_address);
-   
-      } else {
-        window.alert('No results found');
-      }
-    } else {
-      window.alert('Geocoder failed due to: ' + status);
-    }
-  });
-
 }
 
 
