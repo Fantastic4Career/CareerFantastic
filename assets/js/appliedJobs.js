@@ -8,7 +8,7 @@ var appliedJobsVue = new Vue({
       // remove current job
       var index = this.jobs.indexOf(job);
       var dbIndex = job[".key"];
-      this.jobs.splice(index, 1);
+      //this.jobs.splice(index, 1);
 
       jobsAppliedDB.child(dbIndex).remove();
       //
@@ -21,7 +21,13 @@ var appliedJobsVue = new Vue({
       console.log(job.location);
       jobsAppliedDB.child(dbIndex).update(_.omit(job, ".key"));
     }, 
-  }, 
-  mounted() {
+    getHumanDate : function (job) {
+        _.forEach(this.jobs, function(job){
+          return job.date = moment(job.date).format('mm/dd/yyyy');
+        })
+    }
   },
+  created() {
+    this.getHumanDate();
+  } 
 })

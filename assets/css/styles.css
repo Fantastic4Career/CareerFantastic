@@ -301,3 +301,7 @@ input.content-editable {
   border: 0px;
   width: 70%;
 }
+
+[v-cloak] { 
+  display:none; 
+}

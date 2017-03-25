@@ -2,16 +2,10 @@
 <html>
 <head>
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 <link rel="stylesheet" type="text/css" href="assets/css/searchBar.css">
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous">
-</script>
-
 </head>
 
 <body>
@@ -58,7 +52,7 @@
 
       <h5 class="sub-head">Search Results</h5>
         <div class="scrollable">
-        <div class="panel panel-default" v-for="job in jobs">
+        <div class="panel panel-default" v-cloak v-for="job in jobs">
           <div class="panel-heading">
             <h5 class="panel-title company-name">{{job.company}}
             <button type ="submit" class="search-results-btn btn btn-default btn-xs pull-right glyphicon glyphicon-plus" @click.stop="removeJob(job)"></button>
@@ -142,7 +136,7 @@
                          <td class="skills-required" colspan="4"><div>Skills Required: <input class="content-editable" v-model="job.skills" type="text"/></div></td>
                        </tr>
                        <tr>
-                         <td class="date-posted"><div>Date Posted: <input class="content-editable" v-model="job.date_posted" type="date" style="width: 60%;" /></div></td>
+                         <td class="date-posted"><div>Date Posted: <input class="content-editable" v-model="job.date_posted" lazy type="date" style="width: 60%;" /></div></td>
                          <td class="rating" style="width:40%"><div>Rating: <span v-show="job.glassdoor_rating">{{job.glassdoor_rating}}</span>
                          <select v-show="!job.glassdoor_rating" v-model="job.glassdoor_rating">
                            <option v-for="option in job.glassdoor" v-bind:value="option.overallRating">
