@@ -296,3 +296,8 @@ background-color: #e1effe;
     }
 }
 
+input.content-editable {
+  background-color:transparent; 
+  border: 0px;
+  width: 70%;
+}

@@ -119,30 +119,30 @@
 
       <h5 class="sub-head">Jobs of Interest:&nbsp;<span id="jobs-applying-num"></span></h5>
         <div class="scrollable">
-        <div class="row">
+        <div class="row" v-for="job in jobs">
           <div class="card-container manual-flip">
-            <div class="card" v-for="job in jobs">
+            <div class="card">
                 <div class="front">
                   <div class="panel-heading">
-                    <h5 class="panel-title"><span contenteditable>Company</span>
-                    <button type ="submit" class="btn btn-default btn-xs pull-right glyphicon glyphicon-trash"></button>
-                    <button type ="submit" class="btn btn-default btn-xs pull-right glyphicon glyphicon-save"></button>
+                    <h5 class="panel-title"><input class="content-editable" v-model="job.company" type="text" />
+                    <button type ="submit" class="btn btn-default btn-xs pull-right glyphicon glyphicon-trash" @click.stop="removeJob(job)"></button>
+                    <button type ="submit" class="btn btn-default btn-xs pull-right glyphicon glyphicon-save" @click.stop="updateJob(job)"></button>
                     </h5> 
                   </div>
                   <div class="panel-body"> 
                     <table class="table table-striped">
                      <tbody>
                        <tr>
-                        <td class="job-title" colspan="4"><div contenteditable>Job Title:</div></td>
+                        <td class="job-title" colspan="4"><div>Job Title: <input class="content-editable" v-model="job.job_title" type="text"/></div></td>
                        </tr>
                        <tr>
-                         <td class="address" colspan="4"><div contenteditable>Address:</div></td>
+                         <td class="address" colspan="4"><div>Address: <input class="content-editable" v-model="job.location" type="text"/></div></td>
                        </tr>
                        <tr>
-                         <td class="skills-required" colspan="4"><div contenteditable>Skills Required:</div></td>
+                         <td class="skills-required" colspan="4"><div>Skills Required: <input class="content-editable" v-model="job.skills" type="text"/></div></td>
                        </tr>
                        <tr>
-                         <td class="date-posted"><div contenteditable>Date Posted:</div></td>
+                         <td class="date-posted"><div>Date Posted: <input class="content-editable" v-model="job.date_posted" type="date"/></div></td>
                          <td class="rating"><div contenteditable>Rating:</div></td>
                        </tr>
                      </tbody>
