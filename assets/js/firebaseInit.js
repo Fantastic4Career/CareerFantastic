@@ -9,7 +9,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 var jobsAppliedDB = database.ref("/test");
 var appliedMarkers = [];
-
+/*
 $( document ).ready(function() {
 	 // Handler for .ready() called.
 	 database.ref("/test").on("value", function(snapshot){
@@ -29,4 +29,5 @@ $( document ).ready(function() {
 		console.log("appliedMarkers>>>" + appliedMarkers[3]);
 	})
 });
+*/
 
