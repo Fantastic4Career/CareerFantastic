@@ -58,7 +58,7 @@ function initMap() {
       var appliedJobs = snapshot.val() || {};
       _.forEach(appliedJobs, function(job, key){
         console.log("job is>>>", job);
-        if (job.latitude && job.longitude) {
+        if (job && job.latitude && job.longitude) {
           console.log("we are here>>>");
           var newmarker = new google.maps.Marker({
             position: new google.maps.LatLng(job.latitude,job.longitude),

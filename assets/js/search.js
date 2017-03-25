@@ -68,7 +68,12 @@ $(document).ready(function(){
         var lastIndex = this.jobApplied.length -1;
         var lastElement = this.jobApplied[lastIndex];
         console.log("lastElement is>>>", lastElement);
-        var index = lastElement[".key"];
+        var index = _.get(lastElement,".key", null);
+        if (index !== null){
+          index = parseInt(index) +1;
+        } else {
+          index =0;
+        }
         jobsAppliedDB.child(index).set(job);
         console.log("here>>>>", this.jobApplied);
         var glassdoorQueryURL = ("http://api.glassdoor.com/api/api.htm?t.p=133031&t.k=Fihlm10MyE&userip=0.0.0.0&useragent=&format=json&v=1&action=employers");
@@ -83,6 +88,7 @@ $(document).ready(function(){
          }
         })
         .done(function(response){
+          var companyInfos = _.get(response, "response.employers", [])
           jobsAppliedDB.child(index).child("glassdoor").set(companyInfos);
         })
         
@@ -150,7 +156,7 @@ $(document).ready(function(){
         d.job_title= d.jobtitle;
         d.location = d.city + " " +d.state;
         d.skills = parseJobSkills(d.snippet);
-        d.date_posted= d.formattedRelativeTime;
+        d.date_posted= moment(d.date).format("YYYY-MM-DD");
         return d;
       })
       
@@ -163,7 +169,7 @@ $(document).ready(function(){
         d.job_title= d.jobTitle;
         d.location = d.location;
         d.skills = null;
-        d.date_posted= moment().diff(moment(d.date), 'days') + " days ago";
+        d.date_posted= moment(d.date).format("YYYY-MM-DD");
         return d;
       })
 
