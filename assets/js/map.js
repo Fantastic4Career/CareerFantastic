@@ -9,14 +9,13 @@ function initMap() {
 	var map =new google.maps.Map(document.getElementById("googleMap"),mapProp);
 	var bounds = new google.maps.LatLngBounds();
 
-	// Multiple Markers
+	// // Multiple Markers
 	// var markers = [
 	//     ['Life 360', 37.780197,-122.396812],
 	//     ['Drop Box', 37.7810361,-122.3948917],
 	//     ['Twilio', 37.7879277,-122.3937508],
 	//     ['LinkedIn', 37.7866023,-122.4004687],
 	// ];
-
 
 	var infoWindow = new google.maps.InfoWindow();
 	var marker;
