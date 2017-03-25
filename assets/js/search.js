@@ -43,10 +43,14 @@ $(document).ready(function(){
   
   $addSkillsButton.on("click", function(e){
     e.preventDefault();
-    var newSkills = $("#key-words").val().split(" ");
-    skills=skills.concat(newSkills);
-    localStorage.setItem('skills', JSON.stringify(skills));
-    populateAllSkillTags($selectSkills, skills);
+
+    var newSkills = $("#key-words").val();
+    if (newSkills.length >0){
+      skills=skills.concat(newSkills);
+      localStorage.setItem('skills', JSON.stringify(skills));
+      populateAllSkillTags($selectSkills, skills);
+      $("#key-words").val("");
+    }
   });
 
   var newJobsVue = new Vue({
